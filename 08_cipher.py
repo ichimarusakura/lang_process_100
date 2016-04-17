@@ -11,12 +11,12 @@ def cipher(input):
     return res
 
 def decrypt(input):
-    return re.sub('[0-9]+', lambda matchObj: chr(int(matchObj.group(0))), input)
+    return re.sub('[0-9]{3}', lambda matchObj: chr(219 - int(matchObj.group(0))), input)
 
 sentence = "This is a pen."
 crypted = cipher(sentence)
-#decrypted = decrypt(crypted)
+decrypted = decrypt(crypted)
 
 print("sentence :" + sentence)
 print("crypted :" + crypted)
-#print("decrypted :" + decrypted)
+print("decrypted :" + decrypted)
